@@ -69,8 +69,26 @@ void ThreadedBST::remove(int key) {
 /// Return a pointer to the node that holds the key
 /// If the key is not found, return NULL
 /// 
-BSTNode *ThreadedBST::find(int key) {
+BSTNode* ThreadedBST::find(int key) {
 	// Fill this in
+	BSTNode* p = this->root;
+	BSTNode* pp = NULL;
+	if (p == NULL)
+		return NULL;
+	while (p) {
+		pp = p;
+		if (p->key == key) return p;
+		else if (p->key > key) {
+			if (p->leftLinkType == CHILD)
+				p = p->left;
+			else break;
+		}
+		else if (p->key < key) {
+			if (p->rightLinkType == CHILD)
+				p = p->right;
+			else break;
+		}
+	}
 	return NULL;
 } // end-find
 
@@ -81,6 +99,7 @@ BSTNode *ThreadedBST::find(int key) {
 /// 
 BSTNode* ThreadedBST::min() {
 	// Fill this in
+	if (root == NULL) return NULL;
 	BSTNode* p = root;
 	BSTNode* pp = NULL;
 	while (p) {
@@ -97,6 +116,7 @@ BSTNode* ThreadedBST::min() {
 /// 
 BSTNode* ThreadedBST::max() {
 	// Fill this in
+	if (root == NULL) return NULL;
 	BSTNode* p = root;
 	while (p->right) {
 		p = p->right;
@@ -121,5 +141,5 @@ BSTNode* ThreadedBST::previous(BSTNode* node) {
 /// 
 BSTNode* ThreadedBST::next(BSTNode* node) {
 	// Fill this in
-	return node->right;
+	return NULL;
 } // end-next

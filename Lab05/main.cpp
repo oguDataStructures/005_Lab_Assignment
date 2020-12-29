@@ -21,7 +21,7 @@ int main() {
 ///
 int Test1() {
 	ThreadedBST bst;
-
+	BSTNode* p =bst.find(10);
 	bst.add(10);
 	bst.add(5);
 	bst.add(15);
@@ -29,12 +29,21 @@ int Test1() {
 	bst.add(7);
 	bst.add(12);
 	bst.add(6);
+	p = bst.find(10);
+	p = bst.find(2);
+	p = bst.find(15);
+	p = bst.find(12);
+	p = bst.find(8);
+	p = bst.find(18);
+	p = bst.find(45);
+	p = bst.find(5);
 
+	
 	// Check if the bst is set up correctly
 	BSTNode* root = bst.getRoot();
 	if (root->key != 10) return 0;
 
-	BSTNode* p = root->left;
+	p = root->left;
 	if (p->key != 5) return 0;
 
 	p = root->left->left;
