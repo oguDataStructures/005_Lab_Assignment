@@ -131,9 +131,28 @@ BSTNode* ThreadedBST::max() {
 /// returns a pointer to the node that contains the inorder predecessor
 /// If the inorder predecessor does not exist, returns NULL
 /// 
-BSTNode* ThreadedBST::previous(BSTNode* node) {
+BSTNode* ThreadedBST::previous(BSTNode* c) {
 	// Fill this in
-	
+	if (c->leftLinkType == CHILD) {
+		c = c->left;
+		if (c->leftLinkType == CHILD && c->rightLinkType == CHILD) {
+			while (c->rightLinkType == CHILD)
+			{
+				c= c->right;
+			}
+			return c;
+		}
+		else
+		{
+			return c;
+		}
+	}
+	while (c->rightLinkType == THREAD) {
+		if (c->rightLinkType == THREAD && c->leftLinkType == THREAD)
+			return c->left;
+		c = c->right;
+	}
+	return c->right;
 } // end-previous
 
 ///-----------------------------------------------
