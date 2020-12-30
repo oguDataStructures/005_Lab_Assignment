@@ -5,8 +5,8 @@
 // If the link is a CHILD, then it points to a real child node
 // If the link is a THREAD, then 
 // --> left points to the in-order predecessor, right points to the in-order successor
-#define CHILD	1
-#define THREAD	2
+#define CHILD	1 //child
+#define THREAD	2 //parent
 
 struct BSTNode {
 	int key;
