@@ -21,7 +21,7 @@ int main() {
 ///
 int Test1() {
 	ThreadedBST bst;
-	BSTNode* p =bst.find(10);
+	BSTNode* p = bst.find(10);
 	bst.add(10);
 	bst.add(5);
 	bst.add(15);
@@ -39,7 +39,7 @@ int Test1() {
 	p = bst.find(18);
 	p = bst.find(45);
 	p = bst.find(5);
-	
+
 	// Check if the bst is set up correctly
 	BSTNode* root = bst.getRoot();
 	if (root->key != 10) return 0;
@@ -69,7 +69,7 @@ int Test1() {
 
 	p = root->right;
 	if (p->key != 15) return 0;
-	if (p->right->key !=20 ) return 0;
+	if (p->right->key != 20) return 0;
 
 	p = root->right->left;
 	if (p->key != 12) return 0;
@@ -82,7 +82,7 @@ int Test1() {
 	if (p->right != NULL) return 0;
 
 	// Forward walk
-	vector<int> keys = { 2, 5, 6, 7, 8,10, 12, 15 ,20};
+	vector<int> keys = { 2, 5, 6, 7, 8,10, 12, 15 ,20 };
 	p = bst.min();
 	for (auto key : keys) {
 		if (p->key != key) return 0;
@@ -91,18 +91,16 @@ int Test1() {
 	if (p != NULL) return 0;
 
 	// Backward walk
-	/*p = bst.max();
+	p = bst.max();
 	for (int i = keys.size() - 1; i >= 0; i--) {
 		if (p->key != keys[i]) return 0;
 		p = bst.previous(p);  // Go to the previous node
 	} // end-for
-	if (p != NULL) return 0;*/
+	if (p != NULL) return 0;
 
 	// OK. Passed all tests
 	return 20;
-} //end-Test1
-
-///----------------------------------------------
+} //end-Test1///----------------------------------------------
 /// Test 2
 ///
 int Test2() {
