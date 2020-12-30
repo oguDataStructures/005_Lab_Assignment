@@ -63,11 +63,12 @@ void ThreadedBST::add(int key) {
 /// 
 void ThreadedBST::remove(int key) {
 	// Fill this in
+
 } // end-remove
 
 ///-----------------------------------------------
 /// Searches a given key in the ThreadedBST
-/// Return a pointer to the node that holds the key
+/// Return a pointer to the node  that holds the key
 /// If the key is not found, return NULL
 /// 
 BSTNode* ThreadedBST::find(int key) {
@@ -143,7 +144,6 @@ BSTNode* ThreadedBST::previous(BSTNode* node) {
 /// 
 BSTNode* ThreadedBST::next(BSTNode* c) {
 	// Fill this in
-
 	if (c->rightLinkType == THREAD)
 		return c->right;
 	else
