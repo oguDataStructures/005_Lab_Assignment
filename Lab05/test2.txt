@@ -91,12 +91,12 @@ int Test1() {
 	if (p != NULL) return 0;
 
 	// Backward walk
-	/*p = bst.max();
+	p = bst.max();
 	for (int i = keys.size() - 1; i >= 0; i--) {
 		if (p->key != keys[i]) return 0;
 		p = bst.previous(p);  // Go to the previous node
 	} // end-for
-	if (p != NULL) return 0;*/
+	if (p != NULL) return 0;
 
 	// OK. Passed all tests
 	return 20;

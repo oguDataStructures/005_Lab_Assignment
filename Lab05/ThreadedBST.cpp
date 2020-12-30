@@ -62,11 +62,12 @@ void ThreadedBST::add(int key) {
 /// 
 void ThreadedBST::remove(int key) {
 	// Fill this in
+
 } // end-remove
 
 ///-----------------------------------------------
 /// Searches a given key in the ThreadedBST
-/// Return a pointer to the node that holds the key
+/// Return a pointer to the node  that holds the key
 /// If the key is not found, return NULL
 /// 
 BSTNode* ThreadedBST::find(int key) {
@@ -141,5 +142,49 @@ BSTNode* ThreadedBST::previous(BSTNode* node) {
 /// 
 BSTNode* ThreadedBST::next(BSTNode* node) {
 	// Fill this in
-	return NULL;
+	BSTNode* p = node;
+	BSTNode* pp = node->left;
+	if (p == NULL) return NULL;
+	if (p->left == NULL) return p->right;
+	if (p->right == NULL)
+		return NULL;
+	if (p->key<root->key) {
+		while (p->leftLinkType == CHILD && p->rightLinkType == CHILD) {
+			if (p->left->left == NULL) {
+				p = p->right;
+			}
+			p = p->left;
+			if (pp == p) {
+				return p->right->right;
+			}
+			if (p->leftLinkType == THREAD && p->rightLinkType == THREAD)
+				return p;
+		}
+		return p->right;
+	}
+	else {
+		while (p->leftLinkType == CHILD && p->rightLinkType == CHILD)
+		{
+			if (p == root) {
+				p = p->right;
+				continue;
+			}
+			p = p->left;
+			if (pp == p) {
+				return p->right->right;
+			}
+			if (p->leftLinkType == CHILD && p->rightLinkType == THREAD) {
+				return p->left;
+			}
+			if (p->leftLinkType == THREAD && p->rightLinkType == THREAD) {
+				return p;
+			}
+		}
+		if (p->right != NULL) {
+			return p->right;
+		}
+		else {
+			return p->left;
+		}
+	}
 } // end-next
