@@ -22,6 +22,11 @@ public:
 	BSTNode* max();
 	BSTNode* previous(BSTNode* node);
 	BSTNode* next(BSTNode* node);
+	BSTNode* CaseA(BSTNode* node, BSTNode* par, BSTNode* ptr);
+	BSTNode* CaseB(BSTNode* node, BSTNode* par, BSTNode* ptr);
+	BSTNode* CaseC(BSTNode* node, BSTNode* par, BSTNode* ptr);
+
+
 };
 
 #endif

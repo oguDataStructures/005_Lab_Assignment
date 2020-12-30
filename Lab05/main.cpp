@@ -9,7 +9,7 @@ int Test2();
 
 int main() {
 	int grade = Test1();
-	//grade += Test2();
+	grade += Test2();
 
 	printf("Your grade is: %d\n", grade);
 
